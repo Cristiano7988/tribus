@@ -1,10 +1,8 @@
-import './App.css';
-import Form from './components/form';
+import Form from './components/Form';
 import ValidacoesCadastro from './contexts/ValidacoesCadastro';
 import { validarEmail, validarPreenchimento, validarSenha } from './models/cadastro';
 
-
-function App() {
+function Cadastro() {
   return (
     <ValidacoesCadastro.Provider
       value={{
@@ -20,4 +18,4 @@ function App() {
   );
 }
 
-export default App;
+export default Cadastro;

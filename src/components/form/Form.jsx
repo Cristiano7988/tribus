@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Button, Container, Grid, TextField, Typography } from '@material-ui/core';
+import { Button, Container, Grid, Link, TextField, Typography } from '@material-ui/core';
 import ValidacoesCadastro from '../../contexts/ValidacoesCadastro';
 import useErros from '../../hooks/useErros';
 
@@ -147,12 +147,7 @@ function Form() {
                 </Grid>
             </form>
             <Typography component="p">
-                Já possui uma conta?
-                <Typography
-                    component="a"
-                    href="/login"
-                    children="Faça login"
-                />
+                Já possui uma conta? <Link href="/login" children="Faça login" />
             </Typography>
         </Container>
     );
