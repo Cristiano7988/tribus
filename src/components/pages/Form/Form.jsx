@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Button, Container, Grid, Link, TextField, Typography } from '@material-ui/core';
-import ValidacoesCadastro from '../../contexts/ValidacoesCadastro';
-import useErros from '../../hooks/useErros';
+import ValidacoesCadastro from '../../../contexts/ValidacoesCadastro';
+import useErros from '../../../hooks/useErros';
 
 function Form() {
     const [nome, setNome] = useState('');

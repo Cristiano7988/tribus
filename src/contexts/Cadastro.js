@@ -1,6 +1,6 @@
-import Form from './components/Form';
-import ValidacoesCadastro from './contexts/ValidacoesCadastro';
-import { validarEmail, validarPreenchimento, validarSenha } from './models/cadastro';
+import ValidacoesCadastro from './ValidacoesCadastro';
+import { validarEmail, validarPreenchimento, validarSenha } from '../models/cadastro';
+import Form from '../components/pages/Form';
 
 function Cadastro() {
   return (

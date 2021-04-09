@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Login from "./Login";
-import Home from "./Home";
 import RotasPrivadas from "./private/Private";
 import AuthProvider from "../../contexts/AuthProvider";
-import Cadastro from "../../Cadastro";
+import Login from "../pages/Login";
+import Home from "../pages/Home";
+import Cadastro from "../../contexts/Cadastro";
 
 const Rotas = () => (
     <Router>
