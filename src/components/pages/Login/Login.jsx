@@ -37,7 +37,7 @@ const Login = () => {
 
         if(token) {
             setToken(token);
-            return history.push("/home");
+            return history.push("/perfil");
         }
 
         setValores(estadoInicial);

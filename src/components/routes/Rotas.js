@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import RotasPrivadas from "./private/Private";
 import AuthProvider from "../../contexts/AuthProvider";
 import Login from "../pages/Login";
-import Home from "../pages/Home";
+import Perfil from "../pages/Perfil";
 import Cadastro from "../../contexts/Cadastro";
 
 const Rotas = () => (
@@ -10,7 +10,7 @@ const Rotas = () => (
         <AuthProvider>
             <Switch>
                 <Route path="/login" component={Login} />
-                <RotasPrivadas path="/home" component={Home} />
+                <RotasPrivadas path="/perfil" component={Perfil} />
                 <Route path="/" component={Cadastro} />
             </Switch>
         </AuthProvider>

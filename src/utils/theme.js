@@ -73,7 +73,6 @@ const theme = {
     }
   },
   label: {
-    fontFamily: "Montserrat",
     fontSize: "12px",
     fontWeight: 700,
     paddingBottom: "7px",
@@ -107,6 +106,51 @@ const theme = {
   containerTituloGrande: {
     height: "130px",
     ...ContainerTitulo
+  },
+  appBar: {
+    backgroundImage: "linear-gradient(to right, #E57728, #E5A858, #84C167)",
+    justifyContent: "space-between",
+  },
+  tituloSecundario: {
+    fontWeight: 700,
+    fontSize: "19px",
+    ...text
+  },
+  containerImgPerfil: {
+    marginTop: "40px",
+    marginBottom: "20px",
+    width: "250px",
+    height: "250px",
+    fontSize: "100px",
+    border: "9px solid #81C565"
+  },
+  fotoBadge: {
+    span: {
+      backgroundColor: "#E57728",
+      height: "50px",
+      width: "50px",
+      borderRadius: "50%"
+    }
+  },
+  textoPadrao: {
+    ...text,
+    fontSize: "18px",
+    fontWeight: 400
+  },
+  topicoLista: {
+    color: "white",
+    fontSize: "18px",
+    fontWeight: 400,
+    backgroundColor: "#47484C",
+    textAlign: "center", 
+    marginBottom: "7px",
+    borderRadius: "10px",
+    img: {
+      borderRadius: "50%"
+    },
+    span: {
+      ...text,
+    }
   }
 };
 
@@ -120,7 +164,13 @@ export const Label = styled.label(props => props.theme.label);
 export const Paragraph = styled.p(props => props.theme.bottomText);
 export const Path = styled.a(props => props.theme.path);
 export const Titulo = styled.h1(props => props.theme.titulo);
+export const tituloSecundario = styled.h2(props => props.theme.tituloSecundario);
 export const ContainerTituloGrande = styled.div(props => props.theme.containerTituloGrande);
 export const ContainerTituloPequeno = styled.div(props => props.theme.containerTituloPequeno);
+export const Barra = styled.div(props => props.theme.appBar);
+export const containerImgPerfil = styled.div(props => props.theme.containerImgPerfil);
+export const FotoBadge = styled.div(props => props.theme.fotoBadge);
+export const TopicoLista = styled.li(props => props.theme.topicoLista);
+export const TextoPadrao = styled.h3(props => props.theme.textoPadrao);
 
 export default theme;
