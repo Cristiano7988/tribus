@@ -1,0 +1,35 @@
+{
+  "topicos": [
+    {
+      "id": 1,
+      "id_user": 1,
+      "descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis ante ut nunc mollis pulvinar. Praesent mi enim, dictum et feugiat et, luctus eu magna. Praesent sit amet lacus porttitor, consequat risus eu, venenatis ex."
+    }
+  ],
+  "comentarios": [
+    {
+      "id": 1,
+      "id_topico": 1,
+      "body": "some comment",
+      "id_autor": 2,
+      "data_hora": "2021-04-11T20:17:13.976Z"
+    },
+    {
+      "id": 2,
+      "body": "consectetur adipiscing elit. Aenean venenatis ante ut nunc mollis pulvinar. Praesent mi enim",
+      "id_autor": 3,
+      "data_hora": "2021-04-11T22:17:13.976Z"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "nome": "André",
+      "sobrenome": "Silva",
+      "username": "Silva123",
+      "email": "andre.silva@gmail.com",
+      "senha": "qwe123",
+      "foto": "andre.png"
+    }
+  ]
+}

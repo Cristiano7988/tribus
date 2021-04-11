@@ -9,17 +9,26 @@ function estadoInicial() {
     return {username: "", senha: ""};
 }
 
-function logar({username, senha}) {
+function fetchSenha(username) {
+    let url = `http://localhost:8000/users?username=${username}`;
+    
+    return fetch(url)
+    .then(r => r.json())
+    .then(r => r[0]);
+}
 
-    if(username === "admin" && senha ==="admin") {
-        return {token: "123456789"};
+async function logar({username, senha}) {
+    let dados = await fetchSenha(username).then(r=>r);
+
+    if(senha === dados.senha) {
+        return {token: "123456789", dados};
     }
     return {error: "Usuário ou senha inválido!"}
 }
 
 const Login = () => {
     const [valores, setValores] = useState(estadoInicial);
-    const {setToken} = useContext(AuthContext);
+    const {setToken, setPerfil} = useContext(AuthContext);
     const history = useHistory();
 
     function handleChange(e) {
@@ -30,14 +39,15 @@ const Login = () => {
         });
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        const {token} = logar(valores)
+        const {token, dados} = await logar(valores);
 
         if(token) {
             setToken(token);
-            return history.push("/perfil");
+            setPerfil(dados);
+            return history.push("/home");
         }
 
         setValores(estadoInicial);
@@ -81,6 +91,7 @@ const Login = () => {
                             fullWidth
                             id="senha"
                             name="senha"
+                            type="password"
                             required
                         />
                     </Box>

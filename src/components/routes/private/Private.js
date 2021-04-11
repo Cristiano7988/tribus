@@ -10,7 +10,7 @@ const RotasPrivadas = ({component: Component, ...rest}) => {
             {...rest}
            render={()=> token
                 ? <Component {...rest} />
-                : <Redirect to="/login"/>
+                : <Redirect to="/home"/>
             } 
         />
     );
