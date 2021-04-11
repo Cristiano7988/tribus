@@ -6,16 +6,8 @@ import cameraIcon from '../../../img/cameraIcon.svg';
 import AuthContext from '../../../contexts/AuthContext';
 import React, { useContext } from 'react';
 
-function generate(element) {
-    return [0, 1, 2].map((value) =>
-      React.cloneElement(element, {
-        key: value,
-      }),
-    );
-  }
-
 const Perfil = () => {
-    const {perfil} = useContext(AuthContext);
+    const {perfil, topicos} = useContext(AuthContext);
 
     return (
         <Container align="center">
@@ -32,15 +24,15 @@ const Perfil = () => {
             </Badge>
             <Typography component={TextoPadrao} children="Prioridade de tópicos"/>
             <List>
-            {generate(
-                <ListItem component={TopicoLista}>
-                    <ListItemIcon>
-                        <img alt="Ícone do tópico" src={topicIcon} />
-                    </ListItemIcon>
-                    <ListItemText primary="Single-line item" />
-                    <DragHandleOutlinedIcon />
-                </ListItem>,
-            )}
+                {topicos.map((topico, index)=>(
+                    <ListItem key={index} component={TopicoLista}>
+                        <ListItemIcon>
+                            <img alt="Ícone do tópico" src={topicIcon} />
+                        </ListItemIcon>
+                        <ListItemText primary={topico.titulo} />
+                        <DragHandleOutlinedIcon />
+                    </ListItem>
+                ))}
             </List>
         </Container>
     )

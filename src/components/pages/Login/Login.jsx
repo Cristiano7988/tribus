@@ -17,18 +17,27 @@ function fetchSenha(username) {
     .then(r => r[0]);
 }
 
+function fetchTopicos(id) {
+    let url = `http://localhost:8000/topicos?id_user=${id}`;
+    
+    return fetch(url)
+    .then(r => r.json())
+    .then(r => r);
+}
+
 async function logar({username, senha}) {
     let dados = await fetchSenha(username).then(r=>r);
+    let topicos = await fetchTopicos(dados.id).then(r=>r);
 
     if(senha === dados.senha) {
-        return {token: "123456789", dados};
+        return {token: "123456789", dados, topicos};
     }
     return {error: "Usuário ou senha inválido!"}
 }
 
 const Login = () => {
     const [valores, setValores] = useState(estadoInicial);
-    const {setToken, setPerfil} = useContext(AuthContext);
+    const {setToken, setPerfil, setTopicos} = useContext(AuthContext);
     const history = useHistory();
 
     function handleChange(e) {
@@ -42,11 +51,12 @@ const Login = () => {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const {token, dados} = await logar(valores);
+        const {token, dados, topicos} = await logar(valores);
 
         if(token) {
             setToken(token);
             setPerfil(dados);
+            setTopicos(topicos);
             return history.push("/home");
         }
 
