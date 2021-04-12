@@ -16,10 +16,10 @@ Use os seguintes usuários para acessar rotas privadas:
 
 ### `André Silva`
 
-username: Silva123
+username: Silva123\
 senha: qwe123
 
 ### `Jéssica Oliveira`
 
-username: Jessie
+username: Jessie\
 senha: 123456
