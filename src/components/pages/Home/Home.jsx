@@ -7,6 +7,8 @@ import { Route, Switch } from 'react-router';
 import Perfil from '../Perfil';
 import Topico from '../Topico';
 import AuthContext from '../../../contexts/AuthContext';
+import { NavLink } from 'react-router-dom';
+import Config from '../Config';
 
 const Home = () => {
     const {perfil} = useContext(AuthContext);
@@ -25,12 +27,13 @@ const Home = () => {
                     component={tituloSecundario}
                     children={perfil.nome + ' ' + perfil.sobrenome}
                 />
-                <img src={penIcon} width="20px" height="20px" alt="Editar" />
+                <NavLink to="/home/config" children={<img src={penIcon} width="20px" height="20px" alt="Editar" />} />
             </Toolbar>
         </AppBar>
         <Switch>
             <Route exact path="/home/" component={Perfil} />
             <Route exact path="/home/topico" component={Topico} />
+            <Route exact path="/home/config" component={Config} />
         </Switch>
     </>);
 }

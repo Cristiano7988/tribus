@@ -41,6 +41,15 @@ const BottomText = {
   ...text
 };
 
+const containerIcon = {
+  width: "30px",
+  height: "30px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  borderRadius: "50%",
+};
+
 const theme = {
   contained: {
     padding: "unset",
@@ -151,6 +160,23 @@ const theme = {
     span: {
       ...text,
     }
+  },
+  configTitulo: {
+    fontSize: "16px",
+    paddingRight: "5px",
+    ...text
+  },
+  configText: {
+    fontSize: "14px",
+    ...text
+  },
+  orangeIcon: {
+    backgroundColor: "#E57728",
+    ...containerIcon
+  },
+  grayIcon: {
+    backgroundColor: "#47484C",
+    ...containerIcon
   }
 };
 
@@ -172,5 +198,9 @@ export const containerImgPerfil = styled.div(props => props.theme.containerImgPe
 export const FotoBadge = styled.div(props => props.theme.fotoBadge);
 export const TopicoLista = styled.li(props => props.theme.topicoLista);
 export const TextoPadrao = styled.h3(props => props.theme.textoPadrao);
+export const ConfigTitulo = styled.span(props => props.theme.configTitulo);
+export const ConfigText = styled.span(props => props.theme.configText);
+export const OrangeIcon = styled.div(props => props.theme.orangeIcon);
+export const GrayIcon = styled.div(props => props.theme.grayIcon);
 
 export default theme;
