@@ -1,4 +1,4 @@
-import { Btn, BtnBlue, Contained, ContainerTituloPequeno, Div, Efeito, Field, Label, Paragraph, Path, Titulo } from '../../../utils/theme';
+import { Btn, BtnBlue, ContainedCadastro, ContainerForm, ContainerTituloPequeno, Div, EfeitoCadastro, Field, Label, Paragraph, Path, Titulo } from '../../../utils/theme';
 import { Box, Button, Container, FormHelperText, Grid, InputLabel, Link, OutlinedInput, Typography } from '@material-ui/core';
 import React, { useContext, useState } from 'react';
 import ValidacoesCadastro from '../../../contexts/ValidacoesCadastro';
@@ -18,9 +18,9 @@ function Form() {
     const [erros, validarCampo, possoEnviar] = useErros(validacoes);
     
     return (
-        <Container component={Contained}>
-            <Container component={Efeito}>
-                <form align="left" onSubmit={(e)=>{
+        <Container component={ContainedCadastro}>
+            <Container component={EfeitoCadastro}>
+                <Typography component={ContainerForm} align="left" onSubmit={(e)=>{
                     e.preventDefault();
                     if(possoEnviar()) {
                         
@@ -188,7 +188,7 @@ function Form() {
                             children="SIGN IN"
                         />
                     </Grid>
-                </form>
+                </Typography>
                 <Typography component={Paragraph}>
                     Já possui uma conta? <Link href="/login" component={Path} children="Faça login" />
                 </Typography>

@@ -1,5 +1,5 @@
 import { Avatar, Badge, Container, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
-import { containerImgPerfil, FotoBadge, TopicoLista, TextoPadrao } from '../../../utils/theme';
+import { containerImgPerfil, FotoBadge, TopicoLista, TextoPadrao, ContainerForm } from '../../../utils/theme';
 import DragHandleOutlinedIcon from '@material-ui/icons/DragHandleOutlined';
 import topicIcon from '../../../img/topicIcon.svg';
 import cameraIcon from '../../../img/cameraIcon.svg';
@@ -10,7 +10,7 @@ const Perfil = () => {
     const {perfil, topicos} = useContext(AuthContext);
 
     return (
-        <Container align="center">
+        <Container component={ContainerForm}>
             <Badge
                 overlap="circle"
                 anchorOrigin={{

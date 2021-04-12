@@ -1,4 +1,4 @@
-import { Btn, Contained, ContainerTituloGrande, Div, Efeito, Field, Label, Paragraph, Path, Titulo } from '../../../utils/theme';
+import { Btn, ContainedLogin, ContainerForm, ContainerTituloGrande, Div, EfeitoLogin, Field, Label, Paragraph, Path, Titulo } from '../../../utils/theme';
 import { Box, Button, Container, InputLabel, Link, OutlinedInput, Typography } from '@material-ui/core';
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
@@ -64,8 +64,8 @@ const Login = () => {
     }
 
     return (
-        <Container component={Contained}>
-            <Container component={Efeito}>
+        <Container component={ContainedLogin}>
+            <Container component={EfeitoLogin}>
                 <Box component={ContainerTituloGrande}>
                     <img height="100%" src={Logo} alt="tribes" />
                     <Typography
@@ -73,7 +73,7 @@ const Login = () => {
                         children="tribes"
                     />
                 </Box>
-                <form onSubmit={handleSubmit}>
+                <Typography component={ContainerForm} onSubmit={handleSubmit}>
                     <Box component={Div}>
                         <InputLabel
                             component={Label}
@@ -111,7 +111,7 @@ const Login = () => {
                         variant="contained"
                         children="LOGIN"
                     />
-                </form>
+                </Typography>
                 <Typography component={Paragraph}>
                     Ainda Não possui uma conta? <Link href="/" component={Path} children="Cadastre-se" />
                 </Typography>

@@ -22,7 +22,7 @@ const field = {
   borderBottom: "3px solid #E57728"
 };
 
-const ContainerTitulo = {
+const containerTitulo = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -31,12 +31,11 @@ const ContainerTitulo = {
   height: "130px"
 };
 
-const BottomText = {
+const bottomText = {
   fontSize: "16px",
   fontWeight: 300,
   color: "#FFFFFF",
   textAlign: "center",
-  paddingTop: "70px",
   paddingBottom: "17px",
   ...text
 };
@@ -50,21 +49,51 @@ const containerIcon = {
   borderRadius: "50%",
 };
 
+const limpa = {
+  height: "100%",
+  maxWidth: "unset",
+}
+
+const Contained = {
+  padding: "unset",
+  margin: "unset",
+  backgroundImage: `url(${Fundo})`,
+  backgroundSize: "cover",
+}
+
+const Efeito = {
+  paddingLeft: "30px",
+  paddingRight: "30px",
+  background: "rgba(0, 0, 0, 0.65)",
+  backdropFilter: "blur(4px)",
+  backgroundRepeat: "no-repeat",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between"
+}
+
 const theme = {
-  contained: {
-    padding: "unset",
-    backgroundImage: `url(${Fundo})`,
-    backgroundSize: "cover"
+  containedLogin: {
+    ...limpa,
+    ...Contained
   },
-  efeito: {
-    paddingLeft: "30px",
-    paddingRight: "30px",
-    background: "rgba(0, 0, 0, 0.65)",
-    backdropFilter: "blur(4px)",
-    backgroundRepeat: "no-repeat",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between"
+  efeitoLogin: {
+    ...limpa,
+    ...Efeito
+  },
+  containedCadastro: {
+    maxWidth: "unset",
+    ...Contained
+  },
+  efeitoCadastro: {
+    maxWidth: "unset",
+    ...Efeito
+  },
+  containerForm: {
+    width: "100%",
+    maxWidth: "400px",
+    margin: "auto",
+    textAlign: "center"
   },
   orangeButton: {
     marginRight: "7.5px",
@@ -95,11 +124,11 @@ const theme = {
     ...field
   },
   bottomText: {
-    ...BottomText
+    ...bottomText
   },
   path: {
     textDecoration: "underline",
-    ...BottomText
+    ...bottomText
   },
   titulo: {
     color: "#84BF67",
@@ -110,11 +139,11 @@ const theme = {
     paddingBottom: "15px"
   },
   containerTituloPequeno: {
-    ...ContainerTitulo,
+    ...containerTitulo,
   },
   containerTituloGrande: {
     height: "130px",
-    ...ContainerTitulo
+    ...containerTitulo
   },
   appBar: {
     backgroundImage: "linear-gradient(to right, #E57728, #E5A858, #84C167)",
@@ -184,8 +213,10 @@ export const Btn = styled.button(props => props.theme.orangeButton);
 export const BtnBlue = styled.button(props => props.theme.blueButton);
 export const Field = styled.input(props => props.theme.niceField);
 export const Div = styled.div(props => props.theme.container);
-export const Contained = styled.div(props => props.theme.contained);
-export const Efeito = styled.div(props => props.theme.efeito);
+export const ContainedLogin = styled.div(props => props.theme.containedLogin);
+export const EfeitoLogin = styled.div(props => props.theme.efeitoLogin);
+export const ContainedCadastro = styled.div(props => props.theme.containedCadastro);
+export const EfeitoCadastro = styled.div(props => props.theme.efeitoCadastro);
 export const Label = styled.label(props => props.theme.label);
 export const Paragraph = styled.p(props => props.theme.bottomText);
 export const Path = styled.a(props => props.theme.path);
@@ -202,5 +233,6 @@ export const ConfigTitulo = styled.span(props => props.theme.configTitulo);
 export const ConfigText = styled.span(props => props.theme.configText);
 export const OrangeIcon = styled.div(props => props.theme.orangeIcon);
 export const GrayIcon = styled.div(props => props.theme.grayIcon);
+export const ContainerForm = styled.form(props => props.theme.containerForm);
 
 export default theme;

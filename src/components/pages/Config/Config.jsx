@@ -1,5 +1,5 @@
 import { Box, Container, FormHelperText, InputLabel, OutlinedInput, Switch, Typography } from '@material-ui/core';
-import { ConfigTitulo, ConfigText, Div, Field, Label, OrangeIcon, GrayIcon } from '../../../utils/theme';
+import { ConfigTitulo, ConfigText, Div, Field, Label, OrangeIcon, GrayIcon, ContainerForm } from '../../../utils/theme';
 import React, { useContext, useState } from 'react';
 import ValidacoesCadastro from '../../../contexts/ValidacoesCadastro';
 import useErros from '../../../hooks/useErros';
@@ -17,7 +17,7 @@ const Config = () => {
     const [erros, validarCampo] = useErros(validacoes);
 
     return(
-        <Container>
+        <Container component={ContainerForm}>
             <Box paddingTop={3}>
                 <Typography component={ConfigTitulo} children="Notificações"/>
                 <Box display="flex" justifyContent="space-between" paddingTop={2}>
