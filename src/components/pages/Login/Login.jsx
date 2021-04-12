@@ -1,4 +1,4 @@
-import { Btn, Contained, ContainerTituloGrande, Div, Efeito, Field, Label, Paragraph, Path, Titulo } from '../../../utils/theme';
+import { Btn, ContainedLogin, ContainerForm, ContainerTituloGrande, Div, EfeitoLogin, Field, Label, Paragraph, Path, Titulo } from '../../../utils/theme';
 import { Box, Button, Container, InputLabel, Link, OutlinedInput, Typography } from '@material-ui/core';
 import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router';
@@ -9,17 +9,35 @@ function estadoInicial() {
     return {username: "", senha: ""};
 }
 
-function logar({username, senha}) {
+function fetchSenha(username) {
+    let url = `http://localhost:8000/users?username=${username}`;
+    
+    return fetch(url)
+    .then(r => r.json())
+    .then(r => r[0]);
+}
 
-    if(username === "admin" && senha ==="admin") {
-        return {token: "123456789"};
+function fetchTopicos(id) {
+    let url = `http://localhost:8000/topicos?id_user=${id}`;
+    
+    return fetch(url)
+    .then(r => r.json())
+    .then(r => r);
+}
+
+async function logar({username, senha}) {
+    let dados = await fetchSenha(username).then(r=>r);
+    let topicos = await fetchTopicos(dados.id).then(r=>r);
+
+    if(senha === dados.senha) {
+        return {token: "123456789", dados, topicos};
     }
     return {error: "Usuário ou senha inválido!"}
 }
 
 const Login = () => {
     const [valores, setValores] = useState(estadoInicial);
-    const {setToken} = useContext(AuthContext);
+    const {setToken, setPerfil, setTopicos} = useContext(AuthContext);
     const history = useHistory();
 
     function handleChange(e) {
@@ -30,13 +48,15 @@ const Login = () => {
         });
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        const {token} = logar(valores)
+        const {token, dados, topicos} = await logar(valores);
 
         if(token) {
             setToken(token);
+            setPerfil(dados);
+            setTopicos(topicos);
             return history.push("/home");
         }
 
@@ -44,8 +64,8 @@ const Login = () => {
     }
 
     return (
-        <Container component={Contained}>
-            <Container component={Efeito}>
+        <Container component={ContainedLogin}>
+            <Container component={EfeitoLogin}>
                 <Box component={ContainerTituloGrande}>
                     <img height="100%" src={Logo} alt="tribes" />
                     <Typography
@@ -53,7 +73,7 @@ const Login = () => {
                         children="tribes"
                     />
                 </Box>
-                <form onSubmit={handleSubmit}>
+                <Typography component={ContainerForm} onSubmit={handleSubmit}>
                     <Box component={Div}>
                         <InputLabel
                             component={Label}
@@ -81,6 +101,7 @@ const Login = () => {
                             fullWidth
                             id="senha"
                             name="senha"
+                            type="password"
                             required
                         />
                     </Box>
@@ -90,7 +111,7 @@ const Login = () => {
                         variant="contained"
                         children="LOGIN"
                     />
-                </form>
+                </Typography>
                 <Typography component={Paragraph}>
                     Ainda Não possui uma conta? <Link href="/" component={Path} children="Cadastre-se" />
                 </Typography>

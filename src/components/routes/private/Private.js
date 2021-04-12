@@ -3,12 +3,12 @@ import {Redirect, Route} from 'react-router-dom';
 import AuthContext from '../../../contexts/AuthContext';
 
 const RotasPrivadas = ({component: Component, ...rest}) => {
-    const {token} = useContext(AuthContext);
+    const {token, perfil} = useContext(AuthContext);
 
     return (
         <Route
             {...rest}
-           render={()=> token
+           render={()=> token && perfil 
                 ? <Component {...rest} />
                 : <Redirect to="/login"/>
             } 
