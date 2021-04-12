@@ -93,7 +93,6 @@ const theme = {
     width: "100%",
     maxWidth: "400px",
     margin: "auto",
-    textAlign: "center"
   },
   orangeButton: {
     marginRight: "7.5px",

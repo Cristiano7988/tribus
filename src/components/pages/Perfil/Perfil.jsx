@@ -1,4 +1,4 @@
-import { Avatar, Badge, Container, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
+import { Avatar, Box, Badge, Container, List, ListItem, ListItemIcon, ListItemText, Typography } from '@material-ui/core';
 import { containerImgPerfil, FotoBadge, TopicoLista, TextoPadrao, ContainerForm } from '../../../utils/theme';
 import DragHandleOutlinedIcon from '@material-ui/icons/DragHandleOutlined';
 import topicIcon from '../../../img/topicIcon.svg';
@@ -11,17 +11,19 @@ const Perfil = () => {
 
     return (
         <Container component={ContainerForm}>
-            <Badge
-                overlap="circle"
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
-                }}
-                component={FotoBadge}
-                badgeContent={<img alt="Tirar Foto" src={cameraIcon} />}
-            >
-                <Avatar component={containerImgPerfil} alt={perfil.nome + ' ' + perfil.sobrenome} src={'/img/' + perfil.foto} />
-            </Badge>
+            <Box textAlign="center">
+                <Badge
+                    overlap="circle"
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'right',
+                    }}
+                    component={FotoBadge}
+                    badgeContent={<img alt="Tirar Foto" src={cameraIcon} />}
+                >
+                    <Avatar component={containerImgPerfil} alt={perfil.nome + ' ' + perfil.sobrenome} src={'/img/' + perfil.foto} />
+                </Badge>
+            </Box>
             <Typography component={TextoPadrao} children="Prioridade de tópicos"/>
             <List>
                 {topicos.map((topico, index)=>(
